@@ -9,7 +9,10 @@
 #include "codigo.h"
 int flags_key;
 
+fsm_t *lampara_fsm = NULL;
+fsm_t *alarma_fsm = NULL;
 code_t *c = NULL;
+
 static void lampara_principal(void *ignore)
 {
   
@@ -89,9 +92,9 @@ int main(void)
     flags_key = 0;
 
     // Creo las maquinas de estado 
-    fsm_t *lampara_fsm = fsm_new_lampara();
+    lampara_fsm = fsm_new_lampara();
     c = fsm_new_code(1);
-    fsm_t *alarma_fsm = fsm_new_alarma();
+    alarma_fsm = fsm_new_alarma();
 
     //Inicio esto para la ram asi podre escribir correctamente en la consola
     enable_raw_mode();

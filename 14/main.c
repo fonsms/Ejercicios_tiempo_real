@@ -11,46 +11,50 @@
 
 int flags_key;
 
+fsm_t *lampara_fsm = NULL;
+fsm_t *alarma_fsm = NULL;
 code_t *c = NULL;
-static void lampara_principal(void *ignore)
+static void lampara_principal(struct event_handler_t* this)
 {
   
     portTickType period = 20 / portTICK_RATE_MS;
     portTickType last = xTaskGetTickCount();
    
-    while (1)
-    {
+    
+        
         fsm_fire(lampara_fsm);        
         vTaskDelayUntil(&last, period);
-    }
+    
 }
 
-static void alarma (void* ignore)
+static void alarma (struct event_handler_t* this)
 {
   
     portTickType period = 20 / portTICK_RATE_MS;
     portTickType last = xTaskGetTickCount();
     
-    while (1) {
+    
+        
    	    fsm_fire(alarma_fsm);
         vTaskDelayUntil (&last, period);
-    }
+    
 }
 
-static void code (void* ignore)
+static void code (struct event_handler_t* this)
 {
     
     portTickType period = 20 / portTICK_RATE_MS;
     portTickType last = xTaskGetTickCount();
     
-    while (1) {
+
+    
    	    fsm_fire((fsm_t *)c);
         vTaskDelayUntil (&last, period);
-    }
+   
 }
 
 
-static void key (void* ignore)
+static void key (struct event_handler_t* this)
 {
     // Tiempo en freeRTOs
     portTickType period = 20 / portTICK_RATE_MS;
@@ -58,14 +62,13 @@ static void key (void* ignore)
     portTickType last = xTaskGetTickCount();
 
     //   Bucleo que se repite 
-    while (1) {
-       if (key_pressed())
+          if (key_pressed())
         {
+            
             key_process(getchar());
         }
         vTaskDelayUntil (&last, period);
-    } 
-}
+    }
 
 
 static void reactor_run (void* ignore)
@@ -86,7 +89,7 @@ static void reactor_run (void* ignore)
     reactor_add_handler (&eh4);
 
     while (1) {
-        printf("%s\n","handling" );
+       // printf("%s\n","handling" );
         reactor_handle_events ();
     }
 }
@@ -103,8 +106,8 @@ int main(void)
 {
     flags_key = 0;
 
-    fsm_t *lampara_fsm = fsm_new_lampara();
-    fsm_t *alarma_fsm = fsm_new_alarma();
+    lampara_fsm = fsm_new_lampara();
+    alarma_fsm = fsm_new_alarma();
     c = fsm_new_code(1);
 
     enable_raw_mode();
