@@ -15,59 +15,44 @@ fsm_t *lampara_fsm = NULL;
 fsm_t *alarma_fsm = NULL;
 code_t *c = NULL;
 static void lampara_principal(struct event_handler_t* this)
-{
-  
-    portTickType period = 20 / portTICK_RATE_MS;
-    portTickType last = xTaskGetTickCount();
-   
-    
+{  
+       static struct timeval period = { 0, 1000 };    
+        fsm_fire(lampara_fsm); 
+        timeval_add (&this->next_activation, &this->next_activation, &period);
         
-        fsm_fire(lampara_fsm);        
-        vTaskDelayUntil(&last, period);
     
 }
 
 static void alarma (struct event_handler_t* this)
 {
-  
-    portTickType period = 20 / portTICK_RATE_MS;
-    portTickType last = xTaskGetTickCount();
-    
-    
-        
+         static struct timeval period =  { 0, 1000 };  
    	    fsm_fire(alarma_fsm);
-        vTaskDelayUntil (&last, period);
+       timeval_add (&this->next_activation, &this->next_activation, &period);
     
 }
 
 static void code (struct event_handler_t* this)
 {
-    
-    portTickType period = 20 / portTICK_RATE_MS;
-    portTickType last = xTaskGetTickCount();
-    
-
-    
-   	    fsm_fire((fsm_t *)c);
-        vTaskDelayUntil (&last, period);
+    static struct timeval period =  { 0, 1000 };  
+          	    fsm_fire((fsm_t *)c);
+    timeval_add (&this->next_activation, &this->next_activation, &period);
    
 }
 
 
 static void key (struct event_handler_t* this)
 {
-    // Tiempo en freeRTOs
-    portTickType period = 20 / portTICK_RATE_MS;
-    // Tiempo actual
-    portTickType last = xTaskGetTickCount();
-
+      static struct timeval period =  { 0, 1000 };  
     //   Bucleo que se repite 
           if (key_pressed())
         {
             
             key_process(getchar());
         }
-        vTaskDelayUntil (&last, period);
+       
+     timeval_add (&this->next_activation, &this->next_activation, &period);
+        
+        
     }
 
 
