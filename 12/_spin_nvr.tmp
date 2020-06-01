@@ -1,0 +1,121 @@
+never esp_boton_luz_press {    /* !([] ((! (((led_state==OFF)) || ((boton_led==1)))) || (<> ((led_state==ON))))) */
+T0_init:
+	do
+	:: (! ((! (((led_state==OFF)) || ((boton_led==1))))) && ! (((led_state==ON)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((led_state==ON)))) -> goto accept_S4
+	od;
+}
+never esp_boton_luz_time_out {    /* !([] ((! ((led_state==ON))) || (<> ((led_state==OFF))))) */
+T0_init:
+	do
+	:: (! ((! ((led_state==ON)))) && ! (((led_state==OFF)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((led_state==OFF)))) -> goto accept_S4
+	od;
+}
+never esp_codigo_correcto1 {    /* !([] ((! (((ALARMA_state==DESARMADO)) && ((code==solucion)))) || (<> ((ALARMA_state==ARMADO))))) */
+T0_init:
+	do
+	:: (! ((! (((ALARMA_state==DESARMADO)) && ((code==solucion))))) && ! (((ALARMA_state==ARMADO)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ALARMA_state==ARMADO)))) -> goto accept_S4
+	od;
+}
+never esp_presencia_on {    /* !([] ((! (((ALARMA_state==ARMADO)) && ((presencia==1)))) || (<> ((ALARMA_state==PRESENCIA))))) */
+T0_init:
+	do
+	:: (! ((! (((ALARMA_state==ARMADO)) && ((presencia==1))))) && ! (((ALARMA_state==PRESENCIA)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ALARMA_state==PRESENCIA)))) -> goto accept_S4
+	od;
+}
+never esp_codigo_correcto2 {    /* !([] ((! (((ALARMA_state==ARMADO)) && ((code==solucion)))) || (<> ((ALARMA_state==DESARMADO))))) */
+T0_init:
+	do
+	:: (! ((! (((ALARMA_state==ARMADO)) && ((code==solucion))))) && ! (((ALARMA_state==DESARMADO)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ALARMA_state==DESARMADO)))) -> goto accept_S4
+	od;
+}
+never esp_codigo_correcto3 {    /* !([] ((! (((ALARMA_state==PRESENCIA)) && ((code==solucion)))) || (<> ((ALARMA_state==DESARMADO))))) */
+T0_init:
+	do
+	:: (! ((! (((ALARMA_state==PRESENCIA)) && ((code==solucion))))) && ! (((ALARMA_state==DESARMADO)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ALARMA_state==DESARMADO)))) -> goto accept_S4
+	od;
+}
+never esp_presencia_off {    /* !([] ((! (((ALARMA_state==PRESENCIA)) && ((presencia==0)))) || (<> ((ALARMA_state==ARMADO))))) */
+T0_init:
+	do
+	:: (! ((! (((ALARMA_state==PRESENCIA)) && ((presencia==0))))) && ! (((ALARMA_state==ARMADO)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((ALARMA_state==ARMADO)))) -> goto accept_S4
+	od;
+}
+never esp_inc {    /* !([] ((! ((boton_code==1))) || (<> ((cuentainc==(cuenta+1)))))) */
+T0_init:
+	do
+	:: (! ((! ((boton_code==1)))) && ! (((cuentainc==(cuenta+1))))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((cuentainc==(cuenta+1))))) -> goto accept_S4
+	od;
+}
+never esp_avanza {    /* !([] ((! (((time_code>timeout_code)) && ((cuenta==code1)))) || (<> ((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0))))))) */
+T0_init:
+	do
+	:: (! ((! (((time_code>timeout_code)) && ((cuenta==code1))))) && ! (((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0)))))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0)))))) -> goto accept_S4
+	od;
+}
+never esp_tiempofinal {    /* !([] ((! ((time_code>timeout_code))) || (<> ((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0))))))) */
+T0_init:
+	do
+	:: (! ((! ((time_code>timeout_code)))) && ! (((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0)))))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((((digito==0)) || ((digito==1))) || (((digito==2)) && ((cuenta==0)))))) -> goto accept_S4
+	od;
+}
+never esp_accepta {    /* !([] ((! (((time_code>timeout_code)) && ((cuenta==code3)))) || (<> ((correcto==1))))) */
+T0_init:
+	do
+	:: (! ((! (((time_code>timeout_code)) && ((cuenta==code3))))) && ! (((correcto==1)))) -> goto accept_S4
+	:: (1) -> goto T0_init
+	od;
+accept_S4:
+	do
+	:: (! (((correcto==1)))) -> goto accept_S4
+	od;
+}
