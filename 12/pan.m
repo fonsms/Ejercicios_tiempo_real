@@ -889,7 +889,7 @@
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC entorno3 */
-	case 36: // STATE 1 - model.pml:140 - [time_code = 0] (0:0:1 - 1)
+	case 36: // STATE 1 - model.pml:139 - [time_code = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[5][1] = 1;
 		(trpt+1)->bup.oval = now.time_code;
@@ -899,7 +899,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 37: // STATE 2 - model.pml:143 - [boton_code = 1] (0:0:1 - 1)
+	case 37: // STATE 2 - model.pml:142 - [boton_code = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[5][2] = 1;
 		(trpt+1)->bup.oval = now.boton_code;
@@ -909,7 +909,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 38: // STATE 5 - model.pml:145 - [timecode = (timecode+1)] (0:0:1 - 2)
+	case 38: // STATE 5 - model.pml:144 - [timecode = (timecode+1)] (0:0:1 - 2)
 		IfNotBlocked
 		reached[5][5] = 1;
 		(trpt+1)->bup.oval = now.timecode;
@@ -919,19 +919,14 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 39: // STATE 6 - model.pml:146 - [printf('timeoutcode=%d,timecode=%d,btn2=%d,codet=%d,cuenta=%d,correct=%d,correctcode=%d,digit=%d\\n',timeout_code,time_code,boton_code,codet,cuenta,correcto,correctcode,digito)] (0:0:0 - 1)
+	case 39: // STATE 9 - model.pml:146 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[5][6] = 1;
-		Printf("timeoutcode=%d,timecode=%d,btn2=%d,codet=%d,cuenta=%d,correct=%d,correctcode=%d,digit=%d\n", now.timeout_code, now.time_code, now.boton_code, now.codet, now.cuenta, now.correcto, now.correctcode, now.digito);
-		_m = 3; goto P999; /* 0 */
-	case 40: // STATE 10 - model.pml:148 - [-end-] (0:0:0 - 1)
-		IfNotBlocked
-		reached[5][10] = 1;
+		reached[5][9] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC entorno2 */
-	case 41: // STATE 1 - model.pml:128 - [code = 197] (0:0:1 - 1)
+	case 40: // STATE 1 - model.pml:127 - [code = 197] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][1] = 1;
 		(trpt+1)->bup.oval = now.code;
@@ -941,7 +936,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 42: // STATE 2 - model.pml:129 - [code = 679] (0:0:1 - 1)
+	case 41: // STATE 2 - model.pml:128 - [code = 679] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][2] = 1;
 		(trpt+1)->bup.oval = now.code;
@@ -951,7 +946,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 43: // STATE 3 - model.pml:130 - [code = 431] (0:0:1 - 1)
+	case 42: // STATE 3 - model.pml:129 - [code = 431] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][3] = 1;
 		(trpt+1)->bup.oval = now.code;
@@ -961,7 +956,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 44: // STATE 4 - model.pml:131 - [code = 689] (0:0:1 - 1)
+	case 43: // STATE 4 - model.pml:130 - [code = 689] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][4] = 1;
 		(trpt+1)->bup.oval = now.code;
@@ -971,7 +966,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 45: // STATE 5 - model.pml:132 - [code = 789] (0:0:1 - 1)
+	case 44: // STATE 5 - model.pml:131 - [code = 789] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][5] = 1;
 		(trpt+1)->bup.oval = now.code;
@@ -981,7 +976,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 46: // STATE 6 - model.pml:133 - [presencia = 1] (0:0:1 - 1)
+	case 45: // STATE 6 - model.pml:132 - [presencia = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][6] = 1;
 		(trpt+1)->bup.oval = now.presencia;
@@ -991,9 +986,19 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 47: // STATE 7 - model.pml:134 - [code = 900] (0:0:1 - 1)
+	case 46: // STATE 7 - model.pml:133 - [presencia = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[4][7] = 1;
+		(trpt+1)->bup.oval = now.presencia;
+		now.presencia = 0;
+#ifdef VAR_RANGES
+		logval("presencia", now.presencia);
+#endif
+		;
+		_m = 3; goto P999; /* 0 */
+	case 47: // STATE 8 - model.pml:134 - [code = 900] (0:0:1 - 1)
+		IfNotBlocked
+		reached[4][8] = 1;
 		(trpt+1)->bup.oval = now.code;
 		now.code = 900;
 #ifdef VAR_RANGES
@@ -1001,19 +1006,14 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 48: // STATE 10 - model.pml:136 - [printf('code=%d correctcode=%d\\n',code,correctcode)] (0:0:0 - 8)
-		IfNotBlocked
-		reached[4][10] = 1;
-		Printf("code=%d correctcode=%d\n", now.code, now.correctcode);
-		_m = 3; goto P999; /* 0 */
-	case 49: // STATE 14 - model.pml:138 - [-end-] (0:0:0 - 1)
+	case 48: // STATE 14 - model.pml:137 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[4][14] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC entorno1 */
-	case 50: // STATE 1 - model.pml:115 - [time = 0] (0:0:1 - 1)
+	case 49: // STATE 1 - model.pml:115 - [time = 0] (0:0:1 - 1)
 		IfNotBlocked
 		reached[3][1] = 1;
 		(trpt+1)->bup.oval = now.time;
@@ -1023,7 +1023,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 51: // STATE 2 - model.pml:118 - [boton_led = 1] (0:0:1 - 1)
+	case 50: // STATE 2 - model.pml:118 - [boton_led = 1] (0:0:1 - 1)
 		IfNotBlocked
 		reached[3][2] = 1;
 		(trpt+1)->bup.oval = now.boton_led;
@@ -1033,7 +1033,7 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 52: // STATE 6 - model.pml:121 - [time = (time+1)] (0:0:1 - 3)
+	case 51: // STATE 6 - model.pml:121 - [time = (time+1)] (0:0:1 - 3)
 		IfNotBlocked
 		reached[3][6] = 1;
 		(trpt+1)->bup.oval = now.time;
@@ -1043,31 +1043,26 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 53: // STATE 7 - model.pml:122 - [printf('time=%d,state=%e,boton_led=%d,deadline=%d\\n',time,led_state,boton_led,deadline)] (0:0:0 - 1)
+	case 52: // STATE 10 - model.pml:123 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
-		reached[3][7] = 1;
-		Printf("time=%d,state=%e,boton_led=%d,deadline=%d\n", now.time, now.led_state, now.boton_led, now.deadline);
-		_m = 3; goto P999; /* 0 */
-	case 54: // STATE 11 - model.pml:124 - [-end-] (0:0:0 - 1)
-		IfNotBlocked
-		reached[3][11] = 1;
+		reached[3][10] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC codigo */
-	case 55: // STATE 1 - model.pml:92 - [((code_state==IDLE))] (0:0:0 - 1)
+	case 53: // STATE 1 - model.pml:92 - [((code_state==IDLE))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][1] = 1;
 		if (!((now.code_state==2)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 56: // STATE 2 - model.pml:95 - [((code_state==IDLE))] (0:0:0 - 1)
+	case 54: // STATE 2 - model.pml:95 - [((code_state==IDLE))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][2] = 1;
 		if (!((now.code_state==2)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 57: // STATE 3 - model.pml:97 - [(boton_code)] (49:0:5 - 1)
+	case 55: // STATE 3 - model.pml:97 - [(boton_code)] (49:0:5 - 1)
 		IfNotBlocked
 		reached[2][3] = 1;
 		if (!(now.boton_code))
@@ -1105,10 +1100,10 @@
 		logval("cuenta", now.cuenta);
 #endif
 		;
-		/* merge: timeout_code = (time_code+100)(49, 8, 49) */
+		/* merge: timeout_code = (time_code+6)(49, 8, 49) */
 		reached[2][8] = 1;
 		(trpt+1)->bup.ovals[4] = now.timeout_code;
-		now.timeout_code = (now.time_code+100);
+		now.timeout_code = (now.time_code+6);
 #ifdef VAR_RANGES
 		logval("timeout_code", now.timeout_code);
 #endif
@@ -1120,13 +1115,13 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 7 */
-	case 58: // STATE 12 - model.pml:100 - [((code_state==WAIT))] (0:0:0 - 1)
+	case 56: // STATE 12 - model.pml:100 - [((code_state==WAIT))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][12] = 1;
 		if (!((now.code_state==1)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 59: // STATE 13 - model.pml:102 - [(boton_code)] (49:0:4 - 1)
+	case 57: // STATE 13 - model.pml:102 - [(boton_code)] (49:0:4 - 1)
 		IfNotBlocked
 		reached[2][13] = 1;
 		if (!(now.boton_code))
@@ -1156,10 +1151,10 @@
 		logval("cuenta", now.cuenta);
 #endif
 		;
-		/* merge: timeout_code = (time_code+100)(49, 17, 49) */
+		/* merge: timeout_code = (time_code+6)(49, 17, 49) */
 		reached[2][17] = 1;
 		(trpt+1)->bup.ovals[3] = now.timeout_code;
-		now.timeout_code = (now.time_code+100);
+		now.timeout_code = (now.time_code+6);
 #ifdef VAR_RANGES
 		logval("timeout_code", now.timeout_code);
 #endif
@@ -1171,7 +1166,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 6 */
-	case 60: // STATE 47 - model.pml:110 - [.(goto)] (0:49:0 - 7)
+	case 58: // STATE 47 - model.pml:110 - [.(goto)] (0:49:0 - 7)
 		IfNotBlocked
 		reached[2][47] = 1;
 		;
@@ -1179,7 +1174,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 61: // STATE 18 - model.pml:103 - [(((time_code>timeout_code)&&(code1==cuenta)))] (49:0:5 - 1)
+	case 59: // STATE 18 - model.pml:103 - [(((time_code>timeout_code)&&(code1==cuenta)))] (49:0:5 - 1)
 		IfNotBlocked
 		reached[2][18] = 1;
 		if (!(((now.time_code>now.timeout_code)&&(now.code1==now.cuenta))))
@@ -1232,7 +1227,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 7 */
-	case 62: // STATE 24 - model.pml:104 - [(((time_code>timeout_code)&&(code2==cuenta)))] (49:0:5 - 1)
+	case 60: // STATE 24 - model.pml:104 - [(((time_code>timeout_code)&&(code2==cuenta)))] (49:0:5 - 1)
 		IfNotBlocked
 		reached[2][24] = 1;
 		if (!(((now.time_code>now.timeout_code)&&(now.code2==now.cuenta))))
@@ -1285,7 +1280,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 7 */
-	case 63: // STATE 30 - model.pml:105 - [(((time_code>timeout_code)&&(code3==cuenta)))] (49:0:5 - 1)
+	case 61: // STATE 30 - model.pml:105 - [(((time_code>timeout_code)&&(code3==cuenta)))] (49:0:5 - 1)
 		IfNotBlocked
 		reached[2][30] = 1;
 		if (!(((now.time_code>now.timeout_code)&&(now.code3==now.cuenta))))
@@ -1338,7 +1333,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 7 */
-	case 64: // STATE 36 - model.pml:106 - [(((((time_code>timeout_code)&&(code1!=cuenta))||(code2!=cuenta))||(code3!=cuenta)))] (49:0:4 - 1)
+	case 62: // STATE 36 - model.pml:106 - [(((((time_code>timeout_code)&&(code1!=cuenta))||(code2!=cuenta))||(code3!=cuenta)))] (49:0:4 - 1)
 		IfNotBlocked
 		reached[2][36] = 1;
 		if (!(((((now.time_code>now.timeout_code)&&(now.code1!=now.cuenta))||(now.code2!=now.cuenta))||(now.code3!=now.cuenta))))
@@ -1383,7 +1378,7 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 6 */
-	case 65: // STATE 41 - model.pml:107 - [((correctcode==codet))] (49:0:2 - 1)
+	case 63: // STATE 41 - model.pml:107 - [((correctcode==codet))] (49:0:2 - 1)
 		IfNotBlocked
 		reached[2][41] = 1;
 		if (!((now.correctcode==now.codet)))
@@ -1412,13 +1407,13 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 66: // STATE 44 - model.pml:108 - [(!(boton_code))] (0:0:0 - 1)
+	case 64: // STATE 44 - model.pml:108 - [(!(boton_code))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][44] = 1;
 		if (!( !(now.boton_code)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 67: // STATE 45 - model.pml:108 - [(1)] (49:0:0 - 1)
+	case 65: // STATE 45 - model.pml:108 - [(1)] (49:0:0 - 1)
 		IfNotBlocked
 		reached[2][45] = 1;
 		if (!(1))
@@ -1430,14 +1425,14 @@
 		reached[2][50] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 68: // STATE 52 - model.pml:112 - [-end-] (0:0:0 - 1)
+	case 66: // STATE 52 - model.pml:112 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[2][52] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC alarma */
-	case 69: // STATE 1 - model.pml:70 - [ALARMA_state = DESARMADO] (0:0:1 - 1)
+	case 67: // STATE 1 - model.pml:70 - [ALARMA_state = DESARMADO] (0:0:1 - 1)
 		IfNotBlocked
 		reached[1][1] = 1;
 		(trpt+1)->bup.oval = now.ALARMA_state;
@@ -1447,13 +1442,13 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 70: // STATE 2 - model.pml:72 - [((ALARMA_state==DESARMADO))] (0:0:0 - 1)
+	case 68: // STATE 2 - model.pml:72 - [((ALARMA_state==DESARMADO))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][2] = 1;
 		if (!((now.ALARMA_state==5)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 71: // STATE 3 - model.pml:74 - [((code==correctcode))] (24:0:1 - 1)
+	case 69: // STATE 3 - model.pml:74 - [((code==correctcode))] (24:0:1 - 1)
 		IfNotBlocked
 		reached[1][3] = 1;
 		if (!((now.code==now.correctcode)))
@@ -1473,13 +1468,13 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 72: // STATE 8 - model.pml:77 - [((ALARMA_state==ARMADO))] (0:0:0 - 1)
+	case 70: // STATE 8 - model.pml:77 - [((ALARMA_state==ARMADO))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][8] = 1;
 		if (!((now.ALARMA_state==4)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 73: // STATE 9 - model.pml:79 - [((code==correctcode))] (24:0:1 - 1)
+	case 71: // STATE 9 - model.pml:79 - [((code==correctcode))] (24:0:1 - 1)
 		IfNotBlocked
 		reached[1][9] = 1;
 		if (!((now.code==now.correctcode)))
@@ -1499,7 +1494,7 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 74: // STATE 14 - model.pml:82 - [.(goto)] (0:24:0 - 2)
+	case 72: // STATE 14 - model.pml:82 - [.(goto)] (0:24:0 - 2)
 		IfNotBlocked
 		reached[1][14] = 1;
 		;
@@ -1507,7 +1502,7 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 75: // STATE 11 - model.pml:80 - [(presencia)] (24:0:1 - 1)
+	case 73: // STATE 11 - model.pml:80 - [(presencia)] (24:0:1 - 1)
 		IfNotBlocked
 		reached[1][11] = 1;
 		if (!(now.presencia))
@@ -1527,13 +1522,13 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 76: // STATE 16 - model.pml:83 - [((ALARMA_state==PRESENCIA))] (0:0:0 - 1)
+	case 74: // STATE 16 - model.pml:83 - [((ALARMA_state==PRESENCIA))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][16] = 1;
 		if (!((now.ALARMA_state==3)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 77: // STATE 17 - model.pml:85 - [(!(presencia))] (24:0:1 - 1)
+	case 75: // STATE 17 - model.pml:85 - [(!(presencia))] (24:0:1 - 1)
 		IfNotBlocked
 		reached[1][17] = 1;
 		if (!( !(now.presencia)))
@@ -1553,7 +1548,7 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 78: // STATE 22 - model.pml:88 - [.(goto)] (0:24:0 - 2)
+	case 76: // STATE 22 - model.pml:88 - [.(goto)] (0:24:0 - 2)
 		IfNotBlocked
 		reached[1][22] = 1;
 		;
@@ -1561,7 +1556,7 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 79: // STATE 19 - model.pml:86 - [((code==correctcode))] (24:0:1 - 1)
+	case 77: // STATE 19 - model.pml:86 - [((code==correctcode))] (24:0:1 - 1)
 		IfNotBlocked
 		reached[1][19] = 1;
 		if (!((now.code==now.correctcode)))
@@ -1581,14 +1576,14 @@
 		reached[1][25] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 80: // STATE 27 - model.pml:90 - [-end-] (0:0:0 - 1)
+	case 78: // STATE 27 - model.pml:90 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[1][27] = 1;
 		if (!delproc(1, II)) continue;
 		_m = 3; goto P999; /* 0 */
 
 		 /* PROC LED */
-	case 81: // STATE 1 - model.pml:52 - [led_state = OFF] (0:0:1 - 1)
+	case 79: // STATE 1 - model.pml:52 - [led_state = OFF] (0:0:1 - 1)
 		IfNotBlocked
 		reached[0][1] = 1;
 		(trpt+1)->bup.oval = now.led_state;
@@ -1598,13 +1593,13 @@
 #endif
 		;
 		_m = 3; goto P999; /* 0 */
-	case 82: // STATE 2 - model.pml:54 - [((led_state==OFF))] (0:0:0 - 1)
+	case 80: // STATE 2 - model.pml:54 - [((led_state==OFF))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][2] = 1;
 		if (!((now.led_state==7)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 83: // STATE 3 - model.pml:56 - [(boton_led)] (21:0:3 - 1)
+	case 81: // STATE 3 - model.pml:56 - [(boton_led)] (21:0:3 - 1)
 		IfNotBlocked
 		reached[0][3] = 1;
 		if (!(now.boton_led))
@@ -1626,10 +1621,10 @@
 		logval("led_state", now.led_state);
 #endif
 		;
-		/* merge: deadline = (time+100)(21, 6, 21) */
+		/* merge: deadline = (time+6)(21, 6, 21) */
 		reached[0][6] = 1;
 		(trpt+1)->bup.ovals[2] = now.deadline;
-		now.deadline = (now.time+100);
+		now.deadline = (now.time+6);
 #ifdef VAR_RANGES
 		logval("deadline", now.deadline);
 #endif
@@ -1641,13 +1636,13 @@
 		reached[0][22] = 1;
 		;
 		_m = 3; goto P999; /* 5 */
-	case 84: // STATE 10 - model.pml:59 - [((led_state==ON))] (0:0:0 - 1)
+	case 82: // STATE 10 - model.pml:59 - [((led_state==ON))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][10] = 1;
 		if (!((now.led_state==6)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 85: // STATE 11 - model.pml:61 - [((time>deadline))] (21:0:1 - 1)
+	case 83: // STATE 11 - model.pml:61 - [((time>deadline))] (21:0:1 - 1)
 		IfNotBlocked
 		reached[0][11] = 1;
 		if (!((now.time>now.deadline)))
@@ -1667,7 +1662,7 @@
 		reached[0][22] = 1;
 		;
 		_m = 3; goto P999; /* 3 */
-	case 86: // STATE 19 - model.pml:65 - [.(goto)] (0:21:0 - 3)
+	case 84: // STATE 19 - model.pml:65 - [.(goto)] (0:21:0 - 3)
 		IfNotBlocked
 		reached[0][19] = 1;
 		;
@@ -1675,7 +1670,7 @@
 		reached[0][22] = 1;
 		;
 		_m = 3; goto P999; /* 1 */
-	case 87: // STATE 13 - model.pml:62 - [(boton_led)] (21:0:2 - 1)
+	case 85: // STATE 13 - model.pml:62 - [(boton_led)] (21:0:2 - 1)
 		IfNotBlocked
 		reached[0][13] = 1;
 		if (!(now.boton_led))
@@ -1689,10 +1684,10 @@
 		logval("boton_led", now.boton_led);
 #endif
 		;
-		/* merge: deadline = (time+100)(21, 15, 21) */
+		/* merge: deadline = (time+6)(21, 15, 21) */
 		reached[0][15] = 1;
 		(trpt+1)->bup.ovals[1] = now.deadline;
-		now.deadline = (now.time+100);
+		now.deadline = (now.time+6);
 #ifdef VAR_RANGES
 		logval("deadline", now.deadline);
 #endif
@@ -1704,13 +1699,13 @@
 		reached[0][22] = 1;
 		;
 		_m = 3; goto P999; /* 4 */
-	case 88: // STATE 16 - model.pml:63 - [(!(boton_led))] (0:0:0 - 1)
+	case 86: // STATE 16 - model.pml:63 - [(!(boton_led))] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][16] = 1;
 		if (!( !(now.boton_led)))
 			continue;
 		_m = 3; goto P999; /* 0 */
-	case 89: // STATE 17 - model.pml:63 - [(1)] (21:0:0 - 1)
+	case 87: // STATE 17 - model.pml:63 - [(1)] (21:0:0 - 1)
 		IfNotBlocked
 		reached[0][17] = 1;
 		if (!(1))
@@ -1722,7 +1717,7 @@
 		reached[0][22] = 1;
 		;
 		_m = 3; goto P999; /* 2 */
-	case 90: // STATE 24 - model.pml:67 - [-end-] (0:0:0 - 1)
+	case 88: // STATE 24 - model.pml:67 - [-end-] (0:0:0 - 1)
 		IfNotBlocked
 		reached[0][24] = 1;
 		if (!delproc(1, II)) continue;

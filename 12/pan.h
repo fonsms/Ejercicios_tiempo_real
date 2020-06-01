@@ -137,74 +137,74 @@ typedef struct S_F_MAP {
 } S_F_MAP;
 
 #define _nstates16	14	/* esp_accepta */
-#define minseq16	268
-#define maxseq16	280
+#define minseq16	266
+#define maxseq16	278
 #define _endstate16	13
 
 #define _nstates15	14	/* esp_tiempofinal */
-#define minseq15	255
-#define maxseq15	267
+#define minseq15	253
+#define maxseq15	265
 #define _endstate15	13
 
 #define _nstates14	14	/* esp_avanza */
-#define minseq14	242
-#define maxseq14	254
+#define minseq14	240
+#define maxseq14	252
 #define _endstate14	13
 
 #define _nstates13	14	/* esp_inc */
-#define minseq13	229
-#define maxseq13	241
+#define minseq13	227
+#define maxseq13	239
 #define _endstate13	13
 
 #define _nstates12	14	/* esp_presencia_off */
-#define minseq12	216
-#define maxseq12	228
+#define minseq12	214
+#define maxseq12	226
 #define _endstate12	13
 
 #define _nstates11	14	/* esp_codigo_correcto3 */
-#define minseq11	203
-#define maxseq11	215
+#define minseq11	201
+#define maxseq11	213
 #define _endstate11	13
 
 #define _nstates10	14	/* esp_codigo_correcto2 */
-#define minseq10	190
-#define maxseq10	202
+#define minseq10	188
+#define maxseq10	200
 #define _endstate10	13
 
 #define _nstates9	14	/* esp_presencia_on */
-#define minseq9	177
-#define maxseq9	189
+#define minseq9	175
+#define maxseq9	187
 #define _endstate9	13
 
 #define _nstates8	14	/* esp_codigo_correcto1 */
-#define minseq8	164
-#define maxseq8	176
+#define minseq8	162
+#define maxseq8	174
 #define _endstate8	13
 
 #define _nstates7	14	/* esp_boton_luz_time_out */
-#define minseq7	151
-#define maxseq7	163
+#define minseq7	149
+#define maxseq7	161
 #define _endstate7	13
 
 #define _nstates6	14	/* esp_boton_luz_press */
-#define minseq6	138
-#define maxseq6	150
+#define minseq6	136
+#define maxseq6	148
 #define _endstate6	13
 
-#define _nstates5	11	/* entorno3 */
-#define minseq5	128
-#define maxseq5	137
-#define _endstate5	10
+#define _nstates5	10	/* entorno3 */
+#define minseq5	127
+#define maxseq5	135
+#define _endstate5	9
 
 #define _nstates4	15	/* entorno2 */
-#define minseq4	114
-#define maxseq4	127
+#define minseq4	113
+#define maxseq4	126
 #define _endstate4	14
 
-#define _nstates3	12	/* entorno1 */
+#define _nstates3	11	/* entorno1 */
 #define minseq3	103
-#define maxseq3	113
-#define _endstate3	11
+#define maxseq3	112
+#define _endstate3	10
 
 #define _nstates2	53	/* codigo */
 #define minseq2	51
@@ -257,8 +257,8 @@ extern S_F_MAP src_file1[];
 extern S_F_MAP src_file0[];
 
 #define T_ID	unsigned short
-#define _T5	91
-#define _T2	92
+#define _T5	89
+#define _T2	90
 #define WS		8 /* word size in bytes */
 #define SYNC	0
 #define ASYNC	0
@@ -1088,7 +1088,7 @@ void qsend(int, int, int);
 #define GLOBAL	7
 #define BAD	8
 #define ALPHA_F	9
-#define NTRANS	93
+#define NTRANS	91
 #if defined(BFS_PAR) || NCORE>1
 	void e_critical(int);
 	void x_critical(int);

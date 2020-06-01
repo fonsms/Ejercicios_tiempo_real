@@ -164,10 +164,8 @@
 		now.timecode = trpt->bup.oval;
 		;
 		goto R999;
-;
-		;
-		
-	case 40: // STATE 10
+
+	case 39: // STATE 9
 		;
 		p_restor(II);
 		;
@@ -176,51 +174,55 @@
 
 		 /* PROC entorno2 */
 
-	case 41: // STATE 1
+	case 40: // STATE 1
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 42: // STATE 2
+	case 41: // STATE 2
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 43: // STATE 3
+	case 42: // STATE 3
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 44: // STATE 4
+	case 43: // STATE 4
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 45: // STATE 5
+	case 44: // STATE 5
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 46: // STATE 6
+	case 45: // STATE 6
 		;
 		now.presencia = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 47: // STATE 7
+	case 46: // STATE 7
+		;
+		now.presencia = trpt->bup.oval;
+		;
+		goto R999;
+
+	case 47: // STATE 8
 		;
 		now.code = trpt->bup.oval;
 		;
 		goto R999;
-;
-		;
-		
-	case 49: // STATE 14
+
+	case 48: // STATE 14
 		;
 		p_restor(II);
 		;
@@ -229,27 +231,25 @@
 
 		 /* PROC entorno1 */
 
-	case 50: // STATE 1
+	case 49: // STATE 1
 		;
 		now.time = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 51: // STATE 2
+	case 50: // STATE 2
 		;
 		now.boton_led = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 52: // STATE 6
+	case 51: // STATE 6
 		;
 		now.time = trpt->bup.oval;
 		;
 		goto R999;
-;
-		;
-		
-	case 54: // STATE 11
+
+	case 52: // STATE 10
 		;
 		p_restor(II);
 		;
@@ -262,7 +262,7 @@
 		;
 		;
 		
-	case 57: // STATE 8
+	case 55: // STATE 8
 		;
 		now.timeout_code = trpt->bup.ovals[4];
 		now.cuenta = trpt->bup.ovals[3];
@@ -275,7 +275,7 @@
 ;
 		;
 		
-	case 59: // STATE 17
+	case 57: // STATE 17
 		;
 		now.timeout_code = trpt->bup.ovals[3];
 		now.cuenta = trpt->bup.ovals[2];
@@ -286,10 +286,10 @@
 		goto R999;
 ;
 		
-	case 60: // STATE 47
+	case 58: // STATE 47
 		goto R999;
 
-	case 61: // STATE 23
+	case 59: // STATE 23
 		;
 		now.correcto = trpt->bup.ovals[4];
 		now.cuenta = trpt->bup.ovals[3];
@@ -300,7 +300,7 @@
 		ungrab_ints(trpt->bup.ovals, 5);
 		goto R999;
 
-	case 62: // STATE 29
+	case 60: // STATE 29
 		;
 		now.correcto = trpt->bup.ovals[4];
 		now.cuenta = trpt->bup.ovals[3];
@@ -311,7 +311,7 @@
 		ungrab_ints(trpt->bup.ovals, 5);
 		goto R999;
 
-	case 63: // STATE 35
+	case 61: // STATE 35
 		;
 		now.correcto = trpt->bup.ovals[4];
 		now.cuenta = trpt->bup.ovals[3];
@@ -322,7 +322,7 @@
 		ungrab_ints(trpt->bup.ovals, 5);
 		goto R999;
 
-	case 64: // STATE 40
+	case 62: // STATE 40
 		;
 		now.correcto = trpt->bup.ovals[3];
 		now.cuenta = trpt->bup.ovals[2];
@@ -332,7 +332,7 @@
 		ungrab_ints(trpt->bup.ovals, 4);
 		goto R999;
 
-	case 65: // STATE 43
+	case 63: // STATE 43
 		;
 		now.correcto = trpt->bup.ovals[1];
 		now.code_state = trpt->bup.ovals[0];
@@ -343,10 +343,10 @@
 		;
 		;
 		
-	case 67: // STATE 45
+	case 65: // STATE 45
 		goto R999;
 
-	case 68: // STATE 52
+	case 66: // STATE 52
 		;
 		p_restor(II);
 		;
@@ -355,7 +355,7 @@
 
 		 /* PROC alarma */
 
-	case 69: // STATE 1
+	case 67: // STATE 1
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
@@ -363,7 +363,7 @@
 ;
 		;
 		
-	case 71: // STATE 4
+	case 69: // STATE 4
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
@@ -371,17 +371,17 @@
 ;
 		;
 		
-	case 73: // STATE 10
+	case 71: // STATE 10
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
 		goto R999;
 ;
 		
-	case 74: // STATE 14
+	case 72: // STATE 14
 		goto R999;
 
-	case 75: // STATE 12
+	case 73: // STATE 12
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
@@ -389,23 +389,23 @@
 ;
 		;
 		
-	case 77: // STATE 18
+	case 75: // STATE 18
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
 		goto R999;
 ;
 		
-	case 78: // STATE 22
+	case 76: // STATE 22
 		goto R999;
 
-	case 79: // STATE 20
+	case 77: // STATE 20
 		;
 		now.ALARMA_state = trpt->bup.oval;
 		;
 		goto R999;
 
-	case 80: // STATE 27
+	case 78: // STATE 27
 		;
 		p_restor(II);
 		;
@@ -414,7 +414,7 @@
 
 		 /* PROC LED */
 
-	case 81: // STATE 1
+	case 79: // STATE 1
 		;
 		now.led_state = trpt->bup.oval;
 		;
@@ -422,7 +422,7 @@
 ;
 		;
 		
-	case 83: // STATE 6
+	case 81: // STATE 6
 		;
 		now.deadline = trpt->bup.ovals[2];
 		now.led_state = trpt->bup.ovals[1];
@@ -433,17 +433,17 @@
 ;
 		;
 		
-	case 85: // STATE 12
+	case 83: // STATE 12
 		;
 		now.led_state = trpt->bup.oval;
 		;
 		goto R999;
 ;
 		
-	case 86: // STATE 19
+	case 84: // STATE 19
 		goto R999;
 
-	case 87: // STATE 15
+	case 85: // STATE 15
 		;
 		now.deadline = trpt->bup.ovals[1];
 		now.boton_led = trpt->bup.ovals[0];
@@ -454,10 +454,10 @@
 		;
 		;
 		
-	case 89: // STATE 17
+	case 87: // STATE 17
 		goto R999;
 
-	case 90: // STATE 24
+	case 88: // STATE 24
 		;
 		p_restor(II);
 		;

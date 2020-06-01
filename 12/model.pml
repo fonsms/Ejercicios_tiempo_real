@@ -44,7 +44,7 @@ ltl esp_accepta{
 	[]((time_code>timeout_code && cuenta == code3) -> <> (correcto== 1) );
 }
 
-#define TIMEOUT 100
+#define TIMEOUT 6
 int correctcode= 789;
 mtype={OFF,ON,DESARMADO,ARMADO,PRESENCIA,IDLE,WAIT}
 int led_state;
@@ -68,7 +68,7 @@ int boton_code;
 int cuentainc;
 int codet;
 int timecode;
-// cuando time aumenta?????????????????????
+
 
 active proctype LED(){
 	led_state=OFF;
@@ -141,7 +141,6 @@ active proctype entorno1(){
 	  ::skip
 	  fi
 	  time=time+1;
-	  printf("time=%d,state=%e,boton_led=%d,deadline=%d\n",time,led_state,boton_led,deadline)
 	od
 }
 active proctype entorno2(){
@@ -156,7 +155,6 @@ active proctype entorno2(){
 	  ::presencia = 0
 	  ::code=900
 	  fi
-	  printf("code=%d correctcode=%d\n",code,correctcode)
 	od
 }
 active proctype entorno3(){
@@ -166,7 +164,6 @@ active proctype entorno3(){
 	  ::boton_code=1
 	  fi
 	  timecode=timecode+1;
-	  printf("timeoutcode=%d,timecode=%d,btn2=%d,codet=%d,cuenta=%d,correct=%d,correctcode=%d,digit=%d\n",timeout_code,time_code,boton_code,codet,cuenta,correcto,correctcode,digito)
 	od
 }
 
