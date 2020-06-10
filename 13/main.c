@@ -77,8 +77,8 @@ static void key (void* ignore)
 void user_init(void)
 {
     xTaskHandle task_lampara, task_alarma, task_code, task_key;
-    xTaskCreate(lampara_principal, (const signed char *)"lampara", 2048, NULL, 1, &task_lampara);
-    xTaskCreate(alarma, (const signed char *)"alarma", 2048, NULL, 2, &task_alarma);
+    xTaskCreate(lampara_principal, (const signed char *)"lampara", 2048, NULL, 2, &task_lampara);
+    xTaskCreate(alarma, (const signed char *)"alarma", 2048, NULL, 1, &task_alarma);
     xTaskCreate(code, (const signed char *)"codigo", 2048, NULL, 3, &task_code);
     xTaskCreate(key, (const signed char *)"teclado", 2048, NULL, 4, &task_key);
 }
