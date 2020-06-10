@@ -16,7 +16,7 @@ fsm_t *alarma_fsm = NULL;
 code_t *c = NULL;
 static void lampara_principal(struct event_handler_t* this)
 {  
-       static struct timeval period = { 0, 1000 };    
+       static struct timeval period = { 0, 200 };    
         fsm_fire(lampara_fsm); 
         timeval_add (&this->next_activation, &this->next_activation, &period);
         
@@ -25,7 +25,7 @@ static void lampara_principal(struct event_handler_t* this)
 
 static void alarma (struct event_handler_t* this)
 {
-         static struct timeval period =  { 0, 1000 };  
+         static struct timeval period =  { 0, 400 };  
    	    fsm_fire(alarma_fsm);
        timeval_add (&this->next_activation, &this->next_activation, &period);
     
@@ -33,7 +33,7 @@ static void alarma (struct event_handler_t* this)
 
 static void code (struct event_handler_t* this)
 {
-    static struct timeval period =  { 0, 1000 };  
+    static struct timeval period =  { 0, 100 };  
           	    fsm_fire((fsm_t *)c);
     timeval_add (&this->next_activation, &this->next_activation, &period);
    
@@ -42,7 +42,7 @@ static void code (struct event_handler_t* this)
 
 static void key (struct event_handler_t* this)
 {
-      static struct timeval period =  { 0, 1000 };  
+      static struct timeval period =  { 0, 100 };  
     //   Bucleo que se repite 
           if (key_pressed())
         {
